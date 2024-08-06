@@ -3,6 +3,7 @@
 
 
 from typing import List
+import asyncio
 
 
 task_wait_random = __import__('3-task').task_wait_random
@@ -20,11 +21,7 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     Returns:
         List[float]: List of delays in ascending order.
     """
-    # Create n tasks using task_wait_random
-    tasks = [task_wait_random(max_delay) for _ in range(n)]
-
-    # Await all the tasks and collect their results
-    delays = [await task for task in tasks]
-
-    # Return the delays sorted in ascending order
-    return sorted(delays)
+    wait_times = await asyncio.gather(
+        *tuple(map(lambda _: task_wait_random(max_delay), range(n)))
+    )
+    return sorted(wait_times)
