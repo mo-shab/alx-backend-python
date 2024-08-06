@@ -4,11 +4,14 @@
 
 from typing import List
 
+
 task_wait_random = __import__('3-task').task_wait_random
+
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """
-    Asynchronous coroutine that spawns task_wait_random n times with a specified max_delay.
+    Asynchronous coroutine that spawns task_wait_random n times with
+    a specified max_delay.
 
     Args:
         n (int): Number of times to call task_wait_random.
@@ -19,9 +22,9 @@ async def task_wait_n(n: int, max_delay: int) -> List[float]:
     """
     # Create n tasks using task_wait_random
     tasks = [task_wait_random(max_delay) for _ in range(n)]
-    
+
     # Await all the tasks and collect their results
     delays = [await task for task in tasks]
-    
+
     # Return the delays sorted in ascending order
     return sorted(delays)
