@@ -4,6 +4,7 @@
 import asyncio
 import random
 
+
 async def async_generator():
     """Generate 10 random numbers between 0 and 10"""
     for _ in range(10):
