@@ -67,4 +67,3 @@ class TestGetJson(unittest.TestCase):
 
             # Assert that the correct URL was used in the GTE request
             mock_get.assert_called_with(test_url)
-
