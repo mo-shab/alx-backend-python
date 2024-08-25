@@ -24,7 +24,7 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map(self, nested_map, path, expected):
         """Methode test of access nested map"""
         self.assertEqual(access_nested_map(nested_map, path), expected)
-    
+
     @parameterized.expand(
             [
                 ({}, ["a", ]),
@@ -47,7 +47,7 @@ class TestGetJson(unittest.TestCase):
         test_cases = [
             {"test_url": "http://example.com", "test_payload":
              {"payload": True}},
-            {"test_url": "http://holberton.io", "test_payload": 
+            {"test_url": "http://holberton.io", "test_payload":
              {"payload": False}},
         ]
         for case in test_cases:
