@@ -62,8 +62,14 @@ class TestGetJson(unittest.TestCase):
             # Call the function with the test URL
             result = get_json(test_url)
 
-            # Assert that the function returns the correct output
+            # Assert that the function returns the correct payload
             self.assertEqual(result, test_payload)
 
             # Assert that the correct URL was used in the GTE request
-            mock_get.assert_called_with(test_url)
+            mock_get.assert_called_once_with(test_url)
+
+            # Reset the mock for the next iteration
+            mock_get.reset_mock()
+
+if __name__ == '__main__':
+    unittest.main()
