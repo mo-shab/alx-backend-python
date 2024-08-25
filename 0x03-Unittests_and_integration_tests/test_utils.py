@@ -17,18 +17,17 @@ class TestAccessNestedMap(unittest.TestCase):
     """
     @parameterized.expand(
         [
-            ({"a" : 1}, ["a",], 1),
-            ({"a": {"b": 2}}, ["a",], {'b': 2}),
+            ({"a": 1}, ["a", ], 1),
+            ({"a": {"b": 2}}, ["a", ], {'b': 2}),
             ({"a": {"b": 2}}, ["a", "b"], 2),
         ])
-
     def test_access_nested_map(self, nested_map, path, expected):
         """Methode test of access nested map"""
         self.assertEqual(access_nested_map(nested_map, path), expected)
     
     @parameterized.expand(
             [
-                ({}, ["a",]),
+                ({}, ["a", ]),
                 ({"a": 1}, ["a", "b"]),
             ]
     )
@@ -36,6 +35,7 @@ class TestAccessNestedMap(unittest.TestCase):
         """Methode test exceptions"""
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
+
 
 class TestGetJson(unittest.TestCase):
     """Class for Test Get JSON methods"""
