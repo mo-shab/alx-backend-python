@@ -70,6 +70,3 @@ class TestGetJson(unittest.TestCase):
 
             # Reset the mock for the next iteration
             mock_get.reset_mock()
-
-if __name__ == '__main__':
-    unittest.main()
