@@ -1,9 +1,10 @@
-access_nested_map = __import__('utils').access_nested_map
-get_json = __import__('utils').get_json
+memoize = __import__('utils').memoize
 
+class MyClass:
+    @memoize
+    def a_method(self):
+        print("a_method called")
+        return 42
 
-data = get_json("https://jsonplaceholder.typicode.com/posts/2")
-
-# Print the result
-for key in data:
-    print(f"Key : {key}, value : {data[key]}")
+a = MyClass()
+print(a.a_method())
