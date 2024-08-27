@@ -46,7 +46,6 @@ class TestGetJson(unittest.TestCase):
         ("http://example.com", {"payload": True}),
         ("http://http://holberton.io", {"payload": False}),
     ])
-
     def test_get_json(self, test_url: str, test_payload: Dict) -> None:
         """Tests `get_json`'s output."""
         attrs = {'json.return_value': test_payload}
@@ -67,8 +66,8 @@ class TestMemoize(unittest.TestCase):
             @memoize
             def a_property(self):
                 return self.a_method()
-        with patch.object(TestClass, "a_method", return_value=lambda: 42,
-                ) as memo_fxn:
+        with patch.object(TestClass, "a_method",
+                          return_value=lambda: 42,) as memo_fxn:
             test_class = TestClass()
             self.assertEqual(test_class.a_property(), 42)
             self.assertEqual(test_class.a_property(), 42)
